@@ -22,7 +22,9 @@ var miner = {
     $("#account").html(walletAddr);
     $("#workers").html('Online Workers - ' + onlineWorkers + '<br>3hr Average: ' + threeAvg + '<br>24hr Average: ' + twoFourAvg + 'h/s')
     for (var i = 0; i < account.workers.length; i++) {
-      $("#workersList").append('<b>' + account.workers[i].id + '</b> >> 3hr - ' + account.workers[i].avg_h3 + 'h/s' + ', 24hr - ' +  account.workers[i].avg_h24 + 'h/s <br>');
+      // < a href = "#!"
+      // class = "collection-item" > Alan < /a>
+      $("#workersList").append("<li class='collection-item'>" + account.workers[i].id + "</b> >> 3hr - " + account.workers[i].avg_h3 + "h/s" + ", 24hr - " + account.workers[i].avg_h24 + "h/s </li>");
     }
   }
 }
