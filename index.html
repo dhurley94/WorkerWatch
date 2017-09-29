@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MINERS</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+  crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/master.css">
+</head>
+<body>
+  <div class="container">
+  <!--  <div class="navbar navbar-light bg-faded">
+      <span class="navbar-text text-left">
+        Loading...
+      </span>
+      <span class="navbar-text text-right">
+        Loading...
+      </span>
+    </div>
+    <div class="row">
+      <div id="miners" class="col-12 text-center"><br><hr></div>
+    </div> -->
+    <div style="overflow: auto;" class="jumbotron">
+      <h1 class="display-4">XMR Balance - <span id="balance">Loading...</span></h1>
+      <p id="account">Loading...</p>
+      <hr class="my-2">
+      <div class="row">
+        <div class="col-6">
+          <p id="workers">Loading...</p>
+        </div>
+        <div class="col-6">
+          <p id="workersList"></p>
+        </div>
+      </div>
+      <p>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#newSearch" role="button">New Lookup</a>
+        <p>TTL: <span class="text-right" id="timer">30</span></p>
+      </p>
+    </div>
+  </div>
+
+  <div id="newSearch" class="modal fade">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Search Address</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <br>
+          <form>
+          <!--<label for="xmrAddress"><h6>XMR Address</h6></label>-->
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">@</span>
+            <input type="text" class="form-control" aria-describedby="sizing-addon2" name="xmrAddress" placeholder="4BBVQcztrosUfRFFfSogauHvSdH1TKfJS26nkAnVn8xPJRpbFeSWQ3BBseTY6fMDxUJ2kZqEgwoSPKWV3RxXo9wR6NZGuc3" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="lookup" class="btn btn-primary">Lookup</button>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
