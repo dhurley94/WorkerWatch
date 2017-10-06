@@ -1,17 +1,17 @@
-var wallet ='4BBVQcztrosUfRFFfSogauHvSdH1TKfJS26nkAnVn8xPJRpbFeSWQ3BBseTY6fMDxUJ2kZqEgwoSPKWV3RxXo9wR6NZGuc3';
+var wallet = '4BBVQcztrosUfRFFfSogauHvSdH1TKfJS26nkAnVn8xPJRpbFeSWQ3BBseTY6fMDxUJ2kZqEgwoSPKWV3RxXo9wR6NZGuc3';
 var timer = 30;
 var miner = {
-  getOverview:function(address) {
+  getOverview: function (address) {
     $.ajax({
-      method: 'GET',
-      url: 'https://api.nanopool.org/v1/xmr/user/' + address + ''
-    })
-    .done(function(data){
-      console.log(data.data);
-      miner.displayWorkers(data.data);
-    });
+        method: 'GET',
+        url: 'https://api.nanopool.org/v1/xmr/user/' + address + ''
+      })
+      .done(function (data) {
+        console.log(data.data);
+        miner.displayWorkers(data.data);
+      });
   },
-  displayWorkers:function(account) {
+  displayWorkers: function (account) {
     var walletAddr = account.account;
     var balance = parseFloat(account.unconfirmed_balance) + parseFloat(account.balance);
     var onlineWorkers = account.workers.length;
@@ -22,23 +22,21 @@ var miner = {
     $("#account").html(walletAddr);
     $("#workers").html('Online Workers - ' + onlineWorkers + '<br>3hr Average: ' + threeAvg + '<br>24hr Average: ' + twoFourAvg + 'h/s')
     for (var i = 0; i < account.workers.length; i++) {
-      // < a href = "#!"
-      // class = "collection-item" > Alan < /a>
-      $("#workersList").append("<li class='collection-item'>" + account.workers[i].id + "</b> >> 3hr - " + account.workers[i].avg_h3 + "h/s" + ", 24hr - " + account.workers[i].avg_h24 + "h/s </li>");
+      $("#workersList").append('<b>' + account.workers[i].id + '</b> >> 3hr - ' + account.workers[i].avg_h3 + 'h/s' + ', 24hr - ' + account.workers[i].avg_h24 + 'h/s <br>');
     }
   }
 }
 
 miner.getOverview(wallet);
 
-$("#lookup").on('click', function(e) {
+$("#lookup").on('click', function (e) {
   e.preventDefault();
   $('#newSearch').modal('hide')
   wallet = $("input[name=xmrAddress]").val();
   $("#workersList").empty();
   miner.getOverview(wallet);
 });
-$("#lookup").submit(function(e) {
+$("#lookup").submit(function (e) {
   e.preventDefault();
   wallet = $("input[name=xmrAddress]").val();
   $("#workersList").empty();
@@ -46,12 +44,12 @@ $("#lookup").submit(function(e) {
   miner.getOverview(wallet);
 });
 
-setInterval(function(){
+setInterval(function () {
   $("#workersList").empty();
   miner.getOverview(wallet);
 }, 30000);
 
-setInterval(function(){
+setInterval(function () {
   timer--;
   $("#timer").text(timer);
   if (timer == 1) {
